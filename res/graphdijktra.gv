@@ -1,0 +1,16 @@
+strict digraph "" {
+	graph [comment="Linked List"];
+	S -> 1	[label=<<font color="blue"> 16|</font><font color="red">5.8 </font>>];
+	S -> 3	[color=red,
+		label=<<font color="blue"> 13|</font><font color="red">4.0 </font>>];
+	1 -> 2	[label=<<font color="blue"> 5|</font><font color="red">4.6 </font>>];
+	1 -> 4	[label=<<font color="blue"> 10|</font><font color="red">4.5 </font>>];
+	3 -> 2	[label=<<font color="blue"> 10|</font><font color="red">6.0 </font>>];
+	3 -> 5	[color=red,
+		label=<<font color="blue"> 15|</font><font color="red">4.6 </font>>];
+	2 -> 3	[label=<<font color="blue"> 5|</font><font color="red">5.8 </font>>];
+	2 -> 4	[label=<<font color="blue"> 8|</font><font color="red">3.3 </font>>];
+	4 -> T	[label=<<font color="blue"> 25|</font><font color="red">7.2 </font>>];
+	5 -> T	[color=red,
+		label=<<font color="blue"> 6|</font><font color="red">6.8 </font>>];
+}
