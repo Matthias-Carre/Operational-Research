@@ -28,19 +28,19 @@ def dijkstra(adjList,nodesList, start, end):#renvoie la liste des distances et l
     visited=[]
     while toDo:
         node = toDo.pop(0)
-        print("node actuel:", node[0])
+        #print("node actuel:", node[0])
         if node==end:
             break
         for n in adjList[node]:
-            print("voisin en cours:", n[0])
+            #print("voisin en cours:", n[0])
             if n[0] not in visited:
                 if n[0] not in toDo:
-                    print("ajout de:", n[0])
+                    #print("ajout de:", n[0])
                     toDo.append(n[0])
                 if dist[n[0]] > dist[node]+float(n[2]):
                     dist[n[0]]=dist[node]+float(n[2])
                     updatedby[n[0]]=node
-        print("toDo:", toDo)
+        #print("toDo:", toDo)
         visited.append(node)
 
     print("distances:", dist)
