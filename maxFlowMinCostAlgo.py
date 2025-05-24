@@ -6,6 +6,20 @@ def copieDico(dico):
         newDico[key] = value.copy()
     return newDico
 
+def dfsAccessible(adjList, source):
+    visited = set()
+    stack = [source]
+    while stack:
+        node = stack.pop()
+        if node not in visited:
+            visited.add(node)
+            for neighbor in adjList[node]:
+                nextNode = neighbor[0]
+                if nextNode not in visited:
+                    stack.append(nextNode)
+    return visited
+    
+
 def adjacentList(edgeList,nnode): #revoie un dico avec les voisins de chaque sommet composer de (nom, flow, cost, flowuse)
     aL={}
     for i in range(nnode):
@@ -103,6 +117,7 @@ def ex3():
     adjList = adjacentList(data[1], data[0]["numNodes"])
 
     resi = copieDico(adjList)
+    removeEdges = []
     #idee generale: on cherche avec dijktra le chemin le "moins cher", 
     #on reduit puis on reduit les cout avec c_i,j = d(i) + c_i,j - d(j) 
     #avec d distance et c le cout
@@ -136,7 +151,7 @@ def ex3():
         while node2 is not None:
             #print("node1:", node1, "node2:", node2)
             
-            reduceFlowEgde(adjList, resi, node2, node1, minFlow, [])
+            reduceFlowEgde(adjList, resi, node2, node1, minFlow, removeEdges)
             increaseFlowEgde(adjList, node1, node2, minFlow)
             reduceCost(adjList, resi, node2, node1, distances)
             node1 = node2
@@ -146,8 +161,18 @@ def ex3():
         #prettyprint(resi)
 
         distances,updatedby = dijkstra(resi, data[0]["Source"], data[0]["Sink"])
+
+    axcessible = dfsAccessible(resi, data[0]["Source"])
+
+    print("Minumum cut:")
+    for edge in removeEdges:
+        if (edge[0] in axcessible and edge[1] not in axcessible) or (edge[1] in axcessible and edge[0] not in axcessible):
+            print(edge)
+    print("")
+    print("Result for max flow min cut:")
     prettyprint(adjList)
 
 
 if __name__ == "__main__":
+    print("Exercice 3: Max Flow Min Cost Algorithm")
     ex3()

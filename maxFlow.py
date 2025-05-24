@@ -161,4 +161,5 @@ def ex1():
 
 
 if __name__ == "__main__":
+    print("Exercice 1&2: Max Flow and Min Cut Algorithm")
     ex1()
