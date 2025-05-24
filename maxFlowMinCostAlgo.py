@@ -162,15 +162,12 @@ def ex3():
 
         distances,updatedby = dijkstra(resi, data[0]["Source"], data[0]["Sink"])
 
-    axcessible = dfsAccessible(resi, data[0]["Source"])
 
-    print("Minumum cut:")
-    for edge in removeEdges:
-        if (edge[0] in axcessible and edge[1] not in axcessible) or (edge[1] in axcessible and edge[0] not in axcessible):
-            print(edge)
     print("")
     print("Result for max flow min cut:")
     prettyprint(adjList)
+
+    
 
 
 if __name__ == "__main__":

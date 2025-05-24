@@ -37,14 +37,19 @@ Some files are usable in the TestFiles folders
 - run eather
     - ```python *pythonFile*```
     - ```python *pythonFile* --file *./pathToFile.txt*```
+
 *pythonFile*: maxFlow.py or maxFlowMinCost.py
 
 exemple of use:
 ```bash
-python maxFlow.py --file ./TestFiles/inputfileExemple.txt
+python ./maxFlow.py --file ./TestFiles/inputfileExemple.txt
 ```
 
 ### outcome:
-- for 
+#### for maxFlow:
+start with the value of the max flow, follow by the list of every capacity of eatch eddges and the minimum cut.
+
+#### for maxFlowMinCut:
+start with the value of the max flow, the minimum cost value and the list of every capacity of eatch eddges and the minimum cut.
 
 
