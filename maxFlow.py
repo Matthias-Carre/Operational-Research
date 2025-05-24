@@ -73,7 +73,7 @@ def reduceFlowEgde(adjList,resi, node1, node2, newFlow,removeEdge):
             neighbor[3] += newFlow
             if neighbor[1] - neighbor[3] <= 0:
                 try:
-                    print("remove", neighbor[0], "from", node1)
+                    #print("remove", neighbor[0], "from", node1)
                     removeEdge.append((node1,neighbor[0]))
                     resi[node1].remove(neighbor)
                 except:

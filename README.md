@@ -17,7 +17,7 @@ The graph is extracted from a file containing its list of nodes, arcs, upper bou
 - The first line contains 4 numbers : **numNodes** **numArcs** **sourceNode** **sinkNode**, where numNodes is the number of nodes of the graph, numArcs is its number of arcs, sourceNode is s, the source node of the flow and sinkNode is t, the sink of the flow
 - Then, each line contains the description of an arc under the form: emanatingNode, terminatingNode, maxCapacity, cost. This defines the arc (emanatingNode, terminatingNode)  hose upper bound capacity is maxCapacity and whose cost is cost.
 
-**example:**
+**example of input:**
 
 0 1 10 5
 
@@ -28,6 +28,23 @@ The graph is extracted from a file containing its list of nodes, arcs, upper bou
 1 3 10 3
 
 2 3 10 2
-### how to run
+
+Some files are usable in the TestFiles folders
+
+### how to run:
+
+- clone the repo
+- run eather
+    - ```python *pythonFile*```
+    - ```python *pythonFile* --file *./pathToFile.txt*```
+*pythonFile*: maxFlow.py or maxFlowMinCost.py
+
+exemple of use:
+```bash
+python maxFlow.py --file ./TestFiles/inputfileExemple.txt
+```
+
+### outcome:
+- for 
 
 
