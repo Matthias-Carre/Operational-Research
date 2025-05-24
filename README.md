@@ -18,6 +18,7 @@ The graph is extracted from a file containing its list of nodes, arcs, upper bou
 - Then, each line contains the description of an arc under the form: emanatingNode, terminatingNode, maxCapacity, cost. This defines the arc (emanatingNode, terminatingNode)  hose upper bound capacity is maxCapacity and whose cost is cost.
 
 **example:**
+\n
 0 1 10 5
 0 2 5 2
 1 2 15 1
