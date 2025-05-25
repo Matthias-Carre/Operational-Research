@@ -20,7 +20,7 @@ def dfsAccessible(adjList, source):
     return visited
     
 
-def adjacentList(edgeList,nnode): #revoie un dico avec les voisins de chaque sommet composer de (nom, flow, cost, flowuse)
+def adjacentList(edgeList,nnode): #revoie un dico avec les voisins de chaque sommet composer de (nom, flow, cost, flowuse,originalCost)
     aL={}
     for i in range(nnode):
         aL[i] = []
