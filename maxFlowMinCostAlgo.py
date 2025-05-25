@@ -26,9 +26,10 @@ def adjacentList(edgeList,nnode): #revoie un dico avec les voisins de chaque som
         aL[i] = []
     for egde in edgeList:
         if egde[0] not in aL:
-            aL[egde[0]] = [egde[1:]+[0]]#.append(0)
+            # [0] sert pour la quantite de flow utilise et edge[2] pour garder le cout non midifier
+            aL[egde[0]] = [egde[1:]+[0]+[egde[2]]] 
         else:
-            aL[egde[0]].append(egde[1:]+[0])#.append(0))
+            aL[egde[0]].append(egde[1:]+[0]+[egde[2]]) 
 
     #print("Liste d'adja:", aL)
     return aL
@@ -71,7 +72,7 @@ def dijkstra(adjList, start, end):#renvoie la liste des distances et le chemin v
 def prettyprint(adjList):
     for node, neighbors in adjList.items():
         for neighbor in neighbors:
-            if len(neighbor) == 4:
+            if len(neighbor) >= 4:
                 print(f"from Node {node} to {neighbor[0]} (flow used: {neighbor[3]}/{neighbor[1]})") #and cost: {neighbor[2]})")
     print("")
 
@@ -110,7 +111,28 @@ def reduceCost(adjList, resi, node1, node2,distances):
             #print("REDUCE act val:", neighbor[2])
             neighbor[2] = distances[node1] + neighbor[2] - distances[node2]
             #print("REDUCE new val:", neighbor[2])
-            
+
+def maxflow(adjList,source):
+
+    totalFlow = 0
+    for node in adjList[source]:
+        #print("node:", node)
+        if len(node) >= 4:
+            totalFlow += node[3]
+    return totalFlow
+        
+
+def costFlow(adjList,):
+    totalCost = 0
+    
+    for node in adjList:
+        for neighbor in adjList[node]:
+            if len(neighbor) >= 4:
+                #print("cost ",neighbor[4], neighbor[3])
+                totalCost += neighbor[4] * neighbor[3]  
+    return totalCost
+
+
 def ex3():
     #parser l'info
     data = parser.main()
@@ -161,8 +183,11 @@ def ex3():
         #prettyprint(resi)
 
         distances,updatedby = dijkstra(resi, data[0]["Source"], data[0]["Sink"])
-
-
+    print("")
+    maxflowValue = maxflow(adjList, data[0]["Source"])
+    print("Max flow value:", maxflowValue)
+    finalcost = costFlow(adjList)
+    print("Final cost:", finalcost)
     print("")
     print("Result for max flow min cut:")
     prettyprint(adjList)
