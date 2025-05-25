@@ -2,9 +2,8 @@ import argparse
 
 def main():
     #recupeation du fichier en entrer:
-    # récupération du fichier en entrée:
     parser = argparse.ArgumentParser(description='Process some integers.')
-    # Rendre le paramètre facultatif avec nargs='?' et default
+
     parser.add_argument('--file', '-f', type=str, help='the file to parse', required=False)
     args = parser.parse_args()
     
